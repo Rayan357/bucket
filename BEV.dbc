@@ -1,0 +1,82 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU HIL
+VAL_TABLE_ Mode 1 "ON" 0 "OFF" ;
+
+
+BO_ 770 HIL2VCU_Msg2: 8 HIL
+ SG_ PV_601_Veh_Spd_kmph : 16|16@1+ (0.0023,0) [0|150.7305] "" Vector__XXX
+ SG_ PV_601_Veh_Spd_Dmd_kmph : 0|16@1+ (0.0023,0) [0|150.7305] ""  VCU
+
+BO_ 1026 VCU2HIL_MSG2: 8 VCU
+ SG_ Veh_Mod_Man : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Veh_Mod_Auto : 32|1@1+ (1,0) [0|1] ""  HIL
+ SG_ Veh_Brk : 16|16@1+ (0.00153,0) [0|100.26855] ""  HIL
+ SG_ Veh_Acc : 0|16@1+ (0.00153,0) [0|100.26855] ""  HIL
+
+BO_ 769 HIL2VCU: 8 HIL
+ SG_ DChrg_Curr_Lmt_A : 56|8@1- (2.435,-309.245) [-620.925|0] ""  VCU
+ SG_ Chr_Curr_Lmt_A : 48|8@1+ (0.785,0) [0|200.175] ""  VCU
+ SG_ Batt_Volt_V : 8|8@1+ (1.569,0) [0|400.095] ""  VCU
+ SG_ PV_601_Mot_Spd_RPM : 16|16@1+ (0.25941,0) [0|17000.43435] ""  VCU
+ SG_ PV_501_SOC_Bat_perc : 0|8@1+ (0.3925,0) [0|100.0875] ""  VCU
+
+BO_ 1025 VCU2HIL: 8 VCU
+ SG_ Veh_Strt_Flg : 3|1@1+ (1,0) [0|1] ""  HIL
+ SG_ Veh_ESD_Flg : 2|1@1+ (1,0) [0|1] ""  HIL
+ SG_ Veh_Dir_Rev_Flg : 1|1@1+ (1,0) [0|1] ""  HIL
+ SG_ Veh_Dir_Fwd_Flg : 0|1@1+ (1,0) [0|1] ""  HIL
+ SG_ SV_401_BRK_BEV_perc : 32|32@1+ (4,0) [0|17179869180] ""  HIL
+ SG_ SV_401_Trq_Req_Mot_Nm : 16|16@1- (0.014,0) [-458.752|458.738] ""  HIL
+
+
+
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 100;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "BusType" "CAN";
+BA_ "GenMsgCycleTime" BO_ 770 100;
+BA_ "GenMsgCycleTime" BO_ 1026 100;
+BA_ "GenMsgCycleTime" BO_ 769 100;
+BA_ "GenMsgCycleTime" BO_ 1025 100;
+VAL_ 1026 Veh_Mod_Man 1 "ON" 0 "OFF" ;
+VAL_ 1026 Veh_Mod_Auto 1 "ON" 0 "OFF" ;
+VAL_ 1025 Veh_Strt_Flg 1 "ON" 0 "OFF" ;
+VAL_ 1025 Veh_ESD_Flg 1 "ON" 0 "OFF" ;
+VAL_ 1025 Veh_Dir_Rev_Flg 1 "ON" 0 "OFF" ;
+VAL_ 1025 Veh_Dir_Fwd_Flg 1 "ON" 0 "OFF" ;
+

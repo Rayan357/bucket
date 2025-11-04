@@ -1,0 +1,79 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: VCU HIL
+
+
+BO_ 769 MV_Mot_Mod_Msg_1: 8 VCU
+ SG_ MV_303_FCV_Mot_Trq_Cmd : 0|16@1- (0.03,0) [-983.04|983.01] ""  HIL
+
+BO_ 768 PV_Mot_Mod_Msg_1: 8 VCU
+ SG_ PV_301_Mot_Spd_RPM : 0|16@1+ (0.1,0) [0|6553.5] ""  HIL
+
+BO_ 256 PV_Drv_Mod_Msg_1: 8 VCU
+ SG_ PV_108_FCV_Veh_Spd_kmph : 48|16@1+ (0.003,0) [0|196.605] ""  HIL
+ SG_ PV_107_FCV_Veh_Mod_Start_bol : 37|1@1+ (1,0) [0|1] ""  HIL
+ SG_ PV_106_FCV_Veh_Mod_ESD_bol : 36|1@1+ (1,0) [0|1] ""  HIL
+ SG_ PV_105_FCV_Veh_Mod_FCV_bol : 35|1@1+ (1,0) [0|1] ""  HIL
+ SG_ PV_104_FCV_Veh_Mod_BEV_bol : 34|1@1+ (1,0) [0|1] ""  HIL
+ SG_ PV_103_FCV_Veh_Mod_REV_bol : 33|1@1+ (1,0) [0|1] ""  HIL
+ SG_ PV_102_FCV_Veh_Mod_FRW_bol : 32|1@1+ (1,0) [0|1] ""  HIL
+ SG_ PV_101_FCV_Veh_Brk : 16|16@1+ (0.002,0) [0|131.07] ""  HIL
+ SG_ PV_100_FCV_Veh_Acc : 0|16@1+ (0.002,0) [0|131.07] ""  HIL
+
+BO_ 512 PV_Batt_Mod_Msg_1: 8 VCU
+ SG_ PV_204_Batt_Volt_V : 48|8@1+ (0.3,0) [0|76.5] ""  HIL
+ SG_ PV_203_Chrg_Curr_Lmt_A : 40|8@1+ (1,0) [0|255] ""  HIL
+ SG_ PV_202_Dchrg_Curr_Lmt_A : 32|8@1- (3,-381) [-765|0] ""  HIL
+ SG_ PV_201_Batt_SOC_per : 8|8@1+ (0.4,0) [0|102] ""  HIL
+ SG_ PV_206_Batt_Pwr_W : 16|16@1+ (0.2,0) [0|13107] ""  HIL
+ SG_ PV_205_Batt_Curr_A : 0|8@1- (1.5,0) [-192|190.5] ""  HIL
+
+BO_ 1282 FCV_Tmr_Msg_1: 8 VCU
+ SG_ Veh_Spd_Dmd_kmph : 16|16@1+ (0.003,0) [0|196.605] "" Vector__XXX
+ SG_ Drv_Cyc_En : 8|1@1+ (1,0) [0|1] ""  HIL
+ SG_ Heart_Beat : 0|8@1+ (1,0) [0|255] ""  HIL
+
+BO_ 1281 Drv_Cyc_Msg_1: 8 HIL
+ SG_ Drv_Cyc_En : 0|1@1+ (1,0) [0|1] ""  VCU
+
+
+
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 100;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_ "BusType" "CAN";
+
